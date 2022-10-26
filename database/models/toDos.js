@@ -5,7 +5,15 @@ const ToDoSchema = new Schema({
   title: {
     type: String,
     required: true
-  }, 
+  },
+  importance: {
+    type: String,
+    required: true
+  },
+  state: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
