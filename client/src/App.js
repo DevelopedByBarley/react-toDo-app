@@ -1,25 +1,20 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { ToDo } from './components/ToDo';
 import './App.css';
 
 function App() {
   const [toDos, setToDos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:9090/api/toDos')
+    axios.get('/api/toDos')
       .then(res => setToDos(res.data))
   }, [])
+
+  console.log(toDos);
+
   return (
-    <div>
-      {toDos.map((toDo) => {
-        return (
-          <div key={toDo._id}>
-            <h1>{toDo.title}</h1>
-            <p>{toDo.importance}</p>
-          </div>
-        )
-      })}
-    </div>
+    <ToDo/>
   )
 }
 

@@ -4,8 +4,8 @@ const express = require('express');
 const cors = require('cors')
 const connectToDatabase = require('./database/connection/connect')
 const bodyParser = require('body-parser');
-const toDoRouter = require('./routes/api/toDos')
-
+const toDoRouter = require('./routes/api/toDos');
+const path = require('path')
 const app = express();
 
 app.use(cors());
