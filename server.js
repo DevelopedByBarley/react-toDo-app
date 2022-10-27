@@ -16,12 +16,6 @@ connectToDatabase()
 
 // Routes
 app.use('/api/toDos', toDoRouter)
-
-
-app.get('/', (req, res) => {
-  res.send('Hello')
-})
-
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   //Set Static folder
