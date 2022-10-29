@@ -24,6 +24,8 @@ export function ToDo() {
     getToDos()
   }, [])
 
+  console.log(toDos);
+
   console.log(isPending);
   return (
     <>
