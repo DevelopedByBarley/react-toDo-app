@@ -12,7 +12,8 @@ const ToDoSchema = new Schema({
   },
   state: {
     type: String,
-    required: true
+    required: true,
+    default: "ready"
   },
   date: {
     type: Date,
