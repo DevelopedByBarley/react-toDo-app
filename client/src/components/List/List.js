@@ -49,7 +49,7 @@ export function List({ toDos, setToDos, setPending }) {
             .map((toDo, i) => {
 
               return (
-                <div className='list-item' key={toDo._id} style={{ "border": `2px solid ${checkImportanceColor(toDo.importance)}`, "color": checkImportanceColor(toDo.importance) }}>
+                <div className='list-item' key={toDo._id} style={{ "backgroundColor": checkImportanceColor(toDo.importance) }}>
                   <div className='toDoTItle'>{toDo.title}</div>
                   <div className='icons'>
                     <button className='delete-btn' onClick={(event) => {
@@ -76,6 +76,6 @@ function checkImportanceColor(importance) {
     case 'very-important':
       return ' #e06377';
     default:
-      return '#5b9aa0'
+      return '#1CAC78'
   }
 }

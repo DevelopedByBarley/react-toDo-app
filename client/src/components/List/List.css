@@ -5,6 +5,7 @@
   margin: -2rem .8rem;
   padding: 2rem .5rem;
   background-color: white;
+  border-radius: 10px;
 }
 
 .list-item {
@@ -18,9 +19,10 @@
   font-size: 1.3rem;
 }
 
+
 .delete-btn {
   background-color: #c94c4c;
   border: 0;
   color: white;
-  padding: 1rem;
+  padding: .6rem;
 }

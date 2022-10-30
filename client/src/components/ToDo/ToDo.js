@@ -32,7 +32,7 @@ export function ToDo() {
         <Spinner />
       ) : (
         <div className='toDo'>
-          <Header />
+          <Header toDos={toDos} />
           <Form toDos={toDos} setToDos={setToDos} isPopUpActive={isPopUpActive} setPopUpActive={setPopUpActive} />
           <List toDos={toDos} setToDos={setToDos} setPending={setPending} />
           <PopUpButton setPopUpActive={setPopUpActive} />

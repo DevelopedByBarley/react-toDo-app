@@ -3,7 +3,7 @@
 
 .todo-container {
   min-height: 100vh;
-  border: 1px solid;
+  box-shadow: 10px 10px 36px 5px rgba(0,0,0,0.43);
 }
 
 .toDo {
