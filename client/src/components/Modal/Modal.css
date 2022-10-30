@@ -2,7 +2,39 @@
   position: fixed;
   top: 0;
   left: 50%;
-  background-color: rosybrown;
   transform: translate(-50%);
   z-index: 100;
+  width: 250px;
+  padding: 2rem;
+  background-color: white;
+  color: rgb(165, 165, 165);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-btn {
+  padding: .5rem;
+  margin: 1rem .5rem;
+  color: white;
+  border: none;
+  transition: all .4s ease-in-out;
+}
+
+.approve {
+  background-color: #f4a688;
+}
+
+.approve:hover {
+  background-color: #f0916c;
+}
+
+.decline {
+  background-color: #24a0ed;
+}
+
+.decline:hover {
+  background-color: #0880ca;
 }
