@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { Form } from "../Form/Form";
 import { List } from "../List/List";
 import { PopUpButton } from "../PopUpButton/PopUpButton"
-import { Loading } from "../Loading/Loading"
+import { Spinner } from "../Spinner/Spinner"
+import './ToDo.css'
 
 export function ToDo() {
 
@@ -23,18 +24,15 @@ export function ToDo() {
   useEffect(() => {
     getToDos()
   }, [])
-
-  console.log(toDos);
-
-  console.log(isPending);
+;
   return (
     <>
       {isPending ? (
-        <Loading />
+        <Spinner />
       ) : (
         <div className='toDo'>
           <Form toDos={toDos} setToDos={setToDos} isPopUpActive={isPopUpActive} setPopUpActive={setPopUpActive} />
-          <List toDos={toDos} />
+          <List toDos={toDos} setToDos={setToDos} />
           <PopUpButton setPopUpActive={setPopUpActive} />
         </div>
       )}

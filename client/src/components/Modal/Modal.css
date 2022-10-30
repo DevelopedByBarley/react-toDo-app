@@ -1,0 +1,7 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  background-color: rosybrown;
+  transform: translate(-50%);
+}
