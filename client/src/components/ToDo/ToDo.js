@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect, useCallback } from 'react';
 import { Form } from "../Form/Form";
+import { Header } from '../Header/Header';
 import { List } from "../List/List";
-import { PopUpButton } from "../PopUpButton/PopUpButton"
 import { Spinner } from "../Spinner/Spinner"
+import { PopUpButton } from '../PopUpButton/PopUpButton'
 import './ToDo.css'
 
 export function ToDo() {
@@ -24,18 +25,19 @@ export function ToDo() {
   useEffect(() => {
     getToDos()
   }, [])
-;
+    ;
   return (
-    <>
+    <div className='todo-container'>
       {isPending ? (
         <Spinner />
       ) : (
         <div className='toDo'>
+          <Header />
           <Form toDos={toDos} setToDos={setToDos} isPopUpActive={isPopUpActive} setPopUpActive={setPopUpActive} />
-          <List toDos={toDos} setToDos={setToDos} />
+          <List toDos={toDos} setToDos={setToDos} setPending={setPending} />
           <PopUpButton setPopUpActive={setPopUpActive} />
         </div>
       )}
-    </>
+    </div>
   )
 }

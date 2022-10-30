@@ -1,7 +1,17 @@
 .toDoForm {
-  background-color: lightblue;
+  background-color: #24a0ed;
+  padding: 3rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  display: flex;
+}
+
+.close-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: .6rem;
+  border: 0;
 }

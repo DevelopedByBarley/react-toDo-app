@@ -1,0 +1,26 @@
+
+
+
+.list-container {
+  margin: -2rem .8rem;
+  padding: 2rem .5rem;
+  background-color: white;
+}
+
+.list-item {
+  color: white;
+  font-family: 'Anton', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: .2rem;
+  font-size: 1.3rem;
+}
+
+.delete-btn {
+  background-color: #c94c4c;
+  border: 0;
+  color: white;
+  padding: 1rem;
+}

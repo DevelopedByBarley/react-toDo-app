@@ -21,14 +21,14 @@ export function Form({ toDos, setToDos, isPopUpActive, setPopUpActive }) {
                     importance: event.target.elements.importance.value
                   }).then(res => setToDos((prevToDos) => [...prevToDos, res.data]))
                   setPopUpActive(false)
-                  console.log(toDos);
+          
                 } catch (error) {
                   console.log(error);
                 }
 
                 event.target.elements.title.value = ""
               }}>
-                <button onClick={() => setPopUpActive(false)}>x</button>
+                <button className="close-btn" onClick={() => setPopUpActive(false)}>x</button>
                 <input type="text" required name="title" id="title" placeholder="What do you want to Do?" />
                 <select name="importance" id="importance">
                   <option value="not-important">Not important</option>

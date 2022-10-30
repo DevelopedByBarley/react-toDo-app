@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@100&display=swap');
+
+
+.todo-container {
+  min-height: 100vh;
+  border: 1px solid;
+}
+
 .toDo {
-  background-color: #6b5b95;
+  position: relative;
+}
+
+
+@media(min-width: 768px) {
+  .todo-container {
+    max-width: 550px;
+    margin: 0 auto;
+  }
 }
