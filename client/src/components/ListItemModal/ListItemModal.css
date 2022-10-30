@@ -19,7 +19,7 @@
 @media (min-width: 1000px) {
   .list-item-container {
     max-width: 900px;
-    height: 800px;
+    height: 50%;
     bottom: 0;
     left: 50%;
     align-items: center;

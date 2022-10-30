@@ -5,7 +5,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  border-radius: 20px;
+}
+
+form {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input, select {
+  border: 0;
+  padding: .4rem;
+  margin: .5rem;
 }
 
 .close-btn {
@@ -14,4 +27,15 @@
   right: 0;
   padding: .6rem;
   border: 0;
+  color: white;
+  background-color: #24a0ed;
+}
+
+.add-btn {
+  padding: .8rem 2.5rem;
+  margin: .5rem;
+  background-color: rgb(27, 209, 27);
+  border: none;
+  color: white;
+  border-radius: 10px;
 }

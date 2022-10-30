@@ -35,7 +35,7 @@ export function Form({ toDos, setToDos, isPopUpActive, setPopUpActive }) {
                   <option value="important">Important</option>
                   <option value="very-important">Very important</option>
                 </select>
-                <button type="submit">Send</button>
+                <button type="submit" className="add-btn">Add</button>
               </form>
             </div>
           )
