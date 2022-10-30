@@ -1,0 +1,35 @@
+.list-item-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 99;
+  transition: all .4s ease-in-out;
+  width: 100%;
+  animation-name: example;
+  animation-duration: .5s;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+@media (min-width: 1000px) {
+  .list-item-container {
+    max-width: 900px;
+    height: 800px;
+    bottom: 0;
+    left: 50%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    transform: translate(-50%);
+  }
+}
+
+@keyframes example {
+  from {bottom: -100%; opacity: 0;}
+  to {bottom: 0; opacity: 1;}
+}

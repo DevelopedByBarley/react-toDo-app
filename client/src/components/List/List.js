@@ -1,47 +1,26 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { Modal } from '../Modal/Modal';
+import {ListItemModal} from '../ListItemModal/ListItemModal'
 import './List.css'
+
 
 
 
 
 export function List({ toDos, setToDos, setPending }) {
 
-  const [deleteId, setDeleteId] = useState("");
+
+  const [listItem, setListItem] = useState("");
 
 
 
   return (
     <>
-      {deleteId ?
-        (
-          <Modal
-            onApproved={() => {
-              setPending(true)
-              axios.delete(`/api/toDos/${deleteId}`)
-                .then((res) => {
-                  setToDos((prevToDos) => {
-                    const next = [...prevToDos];
-                    const index = prevToDos.findIndex(todo => todo._id === deleteId)
-                    next.splice(index, 1)
-                    return next;
-                  })
-                })
-                .finally(() => setPending(false))
-              setDeleteId("");
-            }}
-            onClosed={() => {
-              setDeleteId("")
-            }}
-          >
-            <p>Are u sure do you want to delete that toDo?</p>
-          </Modal>
-        )
-        :
-        ("")
+      {listItem ? (
+        <ListItemModal listItem={listItem} setListItem={setListItem} toDos={toDos} setToDos={setToDos} setPending={setPending}/>
+      ) : 
+      ("")
       }
-
 
       <div className="list-container">
         <div className="list">
@@ -49,15 +28,8 @@ export function List({ toDos, setToDos, setPending }) {
             .map((toDo, i) => {
 
               return (
-                <div className='list-item' key={toDo._id} style={{ "backgroundColor": checkImportanceColor(toDo.importance) }}>
+                <div  onClick={() => { setListItem(toDo); console.log(listItem); }} className='list-item' key={toDo._id} style={{ "backgroundColor": checkImportanceColor(toDo.importance) }}>
                   <div className='toDoTItle'>{toDo.title}</div>
-                  <div className='icons'>
-                    <button className='delete-btn' onClick={(event) => {
-                      setDeleteId(toDo._id)
-                      event.preventDefault()
-
-                    }}>Delete</button>
-                  </div>
                 </div>
               )
             })
@@ -69,7 +41,7 @@ export function List({ toDos, setToDos, setPending }) {
   )
 }
 
-function checkImportanceColor(importance) {
+export function checkImportanceColor(importance) {
   switch (importance) {
     case 'important':
       return '#f4a688';
@@ -79,3 +51,4 @@ function checkImportanceColor(importance) {
       return '#1CAC78'
   }
 }
+
