@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Modal } from '../Modal/Modal';
-import {checkImportanceColor} from '../List/List'
+import { checkImportanceColor } from '../List/List'
 import './ListItemModal.css'
+import { UpdateForm } from '../UpdateForm/UpdateForm';
 
 
-export function ListItemModal({ listItem, setPending, setToDos }) {
+export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
   const [deleteId, setDeleteId] = useState("");
+  const [listItemForUpdate, setListItemForUpdate] = useState("")
 
-  console.log(listItem);
   return (
     <>
       {deleteId ?
@@ -39,8 +40,14 @@ export function ListItemModal({ listItem, setPending, setToDos }) {
         ("")
       }
 
+      {listItemForUpdate ? (
+        <UpdateForm listItem={listItem} setToDos={setToDos} setListItem={setListItem} setPending={setPending}/>
+      ) : ("")}
 
-      <div className="list-item-container" style={{"background": checkImportanceColor(listItem.importance)}}>
+
+
+
+      <div className="list-item-container" style={{ "background": checkImportanceColor(listItem.importance) }}>
         <div className='list-item-body'>
           <h1 className='title'>{listItem.title}</h1>
           <p className='importance'>{listItem.importance}</p>
@@ -50,6 +57,11 @@ export function ListItemModal({ listItem, setPending, setToDos }) {
           event.preventDefault()
 
         }}>Delete</button>
+        <button className='update-btn' onClick={(event) => {
+          setListItemForUpdate(listItem)
+          event.preventDefault()
+
+        }}>Update</button>
       </div>
     </>
   )

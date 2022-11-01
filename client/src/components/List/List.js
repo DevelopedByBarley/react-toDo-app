@@ -17,7 +17,7 @@ export function List({ toDos, setToDos, setPending }) {
   return (
     <>
       {listItem ? (
-        <ListItemModal listItem={listItem} setListItem={setListItem} toDos={toDos} setToDos={setToDos} setPending={setPending}/>
+        <ListItemModal listItem={listItem} setListItem={setListItem} toDos={toDos} setToDos={setToDos} setPending={setPending} />
       ) : 
       ("")
       }

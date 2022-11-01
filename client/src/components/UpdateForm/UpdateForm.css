@@ -1,0 +1,6 @@
+.update-form-container {
+  background-color: red;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}

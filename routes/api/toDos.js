@@ -34,10 +34,9 @@ router.put('/:toDoId', async (req, res) => {
   const newToDo = {
     title: req.body.title,
     importance: req.body.importance,
-    state: req.body.state
   }
-  const updateToDo = await ToDos.findByIdAndUpdate({ _id: id }, newToDo)
-  res.send(updateToDo)
+  const updatedToDo = await ToDos.findByIdAndUpdate({_id: id}, newToDo, {returnOriginal: false})
+  res.send(updatedToDo)
 })
 
 
