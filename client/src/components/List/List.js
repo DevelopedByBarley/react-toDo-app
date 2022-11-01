@@ -22,6 +22,14 @@ export function List({ toDos, setToDos, setPending }) {
       ("")
       }
 
+
+
+
+
+
+
+
+
       <div className="list-container">
         <div className="list">
           {toDos.filter(toDo => toDo.state === "ready")
@@ -40,6 +48,15 @@ export function List({ toDos, setToDos, setPending }) {
     </>
   )
 }
+
+
+
+
+
+
+
+
+
 
 export function checkImportanceColor(importance) {
   switch (importance) {

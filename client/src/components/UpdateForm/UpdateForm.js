@@ -37,6 +37,10 @@ export function UpdateForm({ listItem, setToDos, setListItem, setPending }) {
           <option value="very-important">Very important</option>
         </select>
         <button type="submit" className="add-btn">Add</button>
+        <button onClick={(event) => {
+          event.preventDefault();
+          setListItem("");
+        }}>Back</button>
       </form>
     </div>
   )
