@@ -41,13 +41,14 @@ export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
       }
 
       {listItemForUpdate ? (
-        <UpdateForm listItem={listItem} setToDos={setToDos} setListItem={setListItem} setPending={setPending}/>
+        <UpdateForm listItem={listItem} setToDos={setToDos} setListItemForUpdate={setListItemForUpdate} setPending={setPending}/>
       ) : ("")}
 
 
 
 
       <div className={`list-item-container ${listItemForUpdate ? "inactive" : ""}`} style={{ "background": checkImportanceColor(listItem.importance) }}>
+        <button className='back' onClick={() => {setListItem("")}}>Back</button>
         <div className='list-item-body'>
           <h1 className='title'>{listItem.title}</h1>
           <p className='importance'>{listItem.importance}</p>

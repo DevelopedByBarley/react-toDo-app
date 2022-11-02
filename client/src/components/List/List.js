@@ -11,6 +11,7 @@ export function List({ toDos, setToDos, setPending }) {
 
 
   const [listItem, setListItem] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState("")
 
 
 
@@ -33,10 +34,12 @@ export function List({ toDos, setToDos, setPending }) {
       <div className="list-container">
         <div className="list">
           {toDos.filter(toDo => toDo.state === "ready")
-            .map((toDo, i) => {
+            .map((toDo) => {
 
               return (
-                <div  onClick={() => { setListItem(toDo); console.log(listItem); }} className='list-item' key={toDo._id} style={{ "backgroundColor": checkImportanceColor(toDo.importance) }}>
+                <div  onClick={() => { 
+                  setListItem(toDo) 
+                  }} className='list-item' key={toDo._id} style={{ "backgroundColor": checkImportanceColor(toDo.importance) }}>
                   <div className='toDoTItle'>{toDo.title}</div>
                 </div>
               )

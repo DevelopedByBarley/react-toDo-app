@@ -1,10 +1,10 @@
 import './UpdateForm.css'
 import axios from 'axios';
 
-export function UpdateForm({ listItem, setToDos, setListItem, setPending }) {
+export function UpdateForm({ listItem, setToDos, setListItemForUpdate, setPending }) {
   return (
     <div className="update-form-container">
-      <h1>UpdateForm</h1>
+      <h1>Update</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
         try {
@@ -19,7 +19,7 @@ export function UpdateForm({ listItem, setToDos, setListItem, setPending }) {
               const next = [...prevToDos];
               const index = prevToDos.findIndex(todo => todo._id === id);
               next[index] = newToDo
-              setListItem("")
+              setListItemForUpdate("")
               return next;
             })
           }).finally(() => setPending(false))
@@ -39,7 +39,7 @@ export function UpdateForm({ listItem, setToDos, setListItem, setPending }) {
         <button type="submit" className="add-btn">Add</button>
         <button onClick={(event) => {
           event.preventDefault();
-          setListItem("");
+          setListItemForUpdate("");
         }}>Back</button>
       </form>
     </div>
