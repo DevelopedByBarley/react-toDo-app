@@ -21,6 +21,8 @@
   margin: 7px;
   display: flex;
   justify-content: space-between;
+  padding: .5rem;
+  width: 100%;
 }
 
 .list-item-content {
@@ -35,8 +37,13 @@
   font-size: 1.3rem;
 }
 
+.toDo-title {
+  font-size: 1.2rem;
+}
+
  .toDo-date{
   margin-left: 2rem;
+  font-size: 1.2rem;
 }
 
 .delete-btn {
