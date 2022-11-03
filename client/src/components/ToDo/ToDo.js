@@ -24,8 +24,9 @@ export function ToDo() {
 
   useEffect(() => {
     getToDos()
-  }, [])
-    ;
+  }, []);
+
+
   return (
     <div className='todo-container'>
       {isPending ? (
@@ -36,6 +37,7 @@ export function ToDo() {
           <Form toDos={toDos} setToDos={setToDos} isPopUpActive={isPopUpActive} setPopUpActive={setPopUpActive} />
           <List toDos={toDos} setToDos={setToDos} setPending={setPending} />
           <PopUpButton setPopUpActive={setPopUpActive} />
+          
         </div>
       )}
     </div>

@@ -6,7 +6,8 @@ import './ListItemModal.css'
 import { UpdateForm } from '../UpdateForm/UpdateForm';
 
 
-export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
+
+export function ListItemModal({ listItem, setToDos, setListItem }) {
   const [deleteId, setDeleteId] = useState("");
   const [listItemForUpdate, setListItemForUpdate] = useState("")
 
@@ -16,7 +17,6 @@ export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
         (
           <Modal
             onApproved={() => {
-              setPending(true)
               axios.delete(`/api/toDos/${deleteId}`)
                 .then((res) => {
                   setToDos((prevToDos) => {
@@ -26,11 +26,12 @@ export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
                     return next;
                   })
                 })
-                .finally(() => setPending(false))
               setDeleteId("");
+              setListItem("")
             }}
             onClosed={() => {
               setDeleteId("")
+              
             }}
           >
             <p>Are u sure do you want to delete that toDo?</p>
@@ -41,29 +42,37 @@ export function ListItemModal({ listItem, setPending, setToDos, setListItem }) {
       }
 
       {listItemForUpdate ? (
-        <UpdateForm listItem={listItem} setToDos={setToDos} setListItemForUpdate={setListItemForUpdate} setPending={setPending}/>
+        <UpdateForm listItem={listItem} setListItem={setListItem} setToDos={setToDos} setListItemForUpdate={setListItemForUpdate}/>
       ) : ("")}
 
 
 
 
       <div className={`list-item-container ${listItemForUpdate ? "inactive" : ""}`} style={{ "background": checkImportanceColor(listItem.importance) }}>
-        <button className='back' onClick={() => {setListItem("")}}>Back</button>
+        <button className='back' onClick={() => { setListItem("") }}><span aria-hidden="true">&#x2716;</span></button>
         <div className='list-item-body'>
           <h1 className='title'>{listItem.title}</h1>
           <p className='importance'>{listItem.importance}</p>
         </div>
-        <button className='delete-btn' onClick={(event) => {
-          setDeleteId(listItem._id)
-          event.preventDefault()
+        <div className='button-container'>
+          <button className='delete-btn list-modal-btn' onClick={(event) => {
+            setDeleteId(listItem._id)
+            event.preventDefault()
 
-        }}>Delete</button>
-        <button className='update-btn' onClick={(event) => {
-          setListItemForUpdate(listItem)
-          event.preventDefault()
-        }}>Update</button>
+          }}>Delete</button>
+          <button className='update-btn list-modal-btn' onClick={(event) => {
+            setListItemForUpdate(listItem)
+            event.preventDefault()
+          }}>Update</button>
+        </div>
       </div>
+
     </>
   )
 }
 
+/**
+ *           {moment(listItem.alarm).format("YYYY/MM/DD")} 
+      
+          {moment(listItem.date).format("YYYY/MM/DD")}
+ */

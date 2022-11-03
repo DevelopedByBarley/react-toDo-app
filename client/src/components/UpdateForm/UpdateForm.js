@@ -1,17 +1,17 @@
 import './UpdateForm.css'
 import axios from 'axios';
 
-export function UpdateForm({ listItem, setToDos, setListItemForUpdate, setPending }) {
+export function UpdateForm({ setListItem, listItem, setToDos, setListItemForUpdate }) {
   return (
     <div className="update-form-container">
       <h1>Update</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
         try {
-          setPending(true)
           axios.put(`/api/toDos/${listItem._id}`, {
             title: event.target.elements.title.value,
-            importance: event.target.elements.importance.value
+            importance: event.target.elements.importance.value,
+            alarm: event.target.elements.alarm.value
           }).then((res) => {
             setToDos((prevToDos) => {
               const id = res.data._id;
@@ -19,10 +19,10 @@ export function UpdateForm({ listItem, setToDos, setListItemForUpdate, setPendin
               const next = [...prevToDos];
               const index = prevToDos.findIndex(todo => todo._id === id);
               next[index] = newToDo
-              setListItemForUpdate("")
               return next;
             })
-          }).finally(() => setPending(false))
+            setListItem("")
+          })
 
         } catch (error) {
           console.log(error);
@@ -36,11 +36,12 @@ export function UpdateForm({ listItem, setToDos, setListItemForUpdate, setPendin
           <option value="important">Important</option>
           <option value="very-important">Very important</option>
         </select>
+        <input type="date" name="alarm" id="alarm" required/>
         <button type="submit" className="add-btn">Add</button>
-        <button onClick={(event) => {
+        <button className='back' aria-hidden="true" onClick={(event) => {
           event.preventDefault();
           setListItemForUpdate("");
-        }}>Back</button>
+        }}>&#x2716;</button>
       </form>
     </div>
   )

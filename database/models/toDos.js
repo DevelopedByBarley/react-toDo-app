@@ -18,6 +18,10 @@ const ToDoSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  alarm: {
+    type: Date,
+    required: true
   }
 })
 

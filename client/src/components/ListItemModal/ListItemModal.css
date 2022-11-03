@@ -16,6 +16,31 @@
   border-radius: 20px;
 }
 
+.list-item-container .back {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: none;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.list-item-container .button-container .list-modal-btn {
+  padding: .7rem 1.2rem;
+  margin: 1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.list-item-container .button-container .update-btn {
+  background-color: orange;
+}
+
+
+
 @media (min-width: 1000px) {
   .list-item-container {
     max-width: 900px;
@@ -37,3 +62,4 @@
 .inactive {
   left: -100%;
 }
+

@@ -29,6 +29,7 @@ input, select {
   border: 0;
   color: white;
   background-color: #24a0ed;
+  cursor: pointer;
 }
 
 .add-btn {

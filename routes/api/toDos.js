@@ -13,7 +13,8 @@ router.post('/', async (req, res) => {
   const newToDo = await new ToDos({
     title: req.body.title,
     importance: req.body.importance,
-    state: req.body.state
+    state: req.body.state,
+    alarm: req.body.alarm
   })
   await newToDo.save();
   res.send(newToDo)
@@ -34,6 +35,7 @@ router.put('/:toDoId', async (req, res) => {
   const newToDo = {
     title: req.body.title,
     importance: req.body.importance,
+    alarm: req.body.alarm
   }
   const updatedToDo = await ToDos.findByIdAndUpdate({_id: id}, newToDo, {returnOriginal: false})
   res.send(updatedToDo)
