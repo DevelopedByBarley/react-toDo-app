@@ -6,13 +6,21 @@
 }
 
 .list-item {
+  border-radius: 5px;
+  margin: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item-content {
   color: white;
   font-family: 'Anton', sans-serif;
   display: flex;
   justify-content: space-between;
   padding: 1.4rem;
-  border-radius: 5px;
-  margin: .2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   font-size: 1.3rem;
 }
 
@@ -21,4 +29,15 @@
   border: 0;
   color: white;
   padding: .6rem;
+}
+
+.isItDone-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
 }

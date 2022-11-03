@@ -16,6 +16,22 @@
   border-radius: 20px;
 }
 
+h1 {
+  font-size: 3rem;
+  font-family: 'Anton', sans-serif;
+}
+
+.list-item-container .list-item-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-item-container .list-item-body-group {
+  margin: .5rem;
+  text-align: center;
+}
+
 .list-item-container .back {
   position: absolute;
   right: 5px;
@@ -27,9 +43,21 @@
   cursor: pointer;
 }
 
+hr {
+  width: 100%;
+}
+
+.list-item-container .list-item-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
 .list-item-container .button-container .list-modal-btn {
   padding: .7rem 1.2rem;
-  margin: 1rem;
+  margin: 5rem 1rem;
   color: white;
   border: none;
   border-radius: 5px;

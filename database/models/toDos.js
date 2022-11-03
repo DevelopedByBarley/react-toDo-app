@@ -10,10 +10,10 @@ const ToDoSchema = new Schema({
     type: String,
     required: true
   },
-  state: {
-    type: String,
+  isItDone: {
+    type: Boolean,
     required: false,
-    default: "ready"
+    default: false
   },
   date: {
     type: Date,

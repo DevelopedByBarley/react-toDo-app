@@ -4,12 +4,15 @@ import { Modal } from '../Modal/Modal';
 import { checkImportanceColor } from '../List/List'
 import './ListItemModal.css'
 import { UpdateForm } from '../UpdateForm/UpdateForm';
+import moment from 'moment';
 
 
 
 export function ListItemModal({ listItem, setToDos, setListItem }) {
   const [deleteId, setDeleteId] = useState("");
   const [listItemForUpdate, setListItemForUpdate] = useState("")
+
+  console.log(listItem);
 
   return (
     <>
@@ -31,7 +34,7 @@ export function ListItemModal({ listItem, setToDos, setListItem }) {
             }}
             onClosed={() => {
               setDeleteId("")
-              
+
             }}
           >
             <p>Are u sure do you want to delete that toDo?</p>
@@ -42,7 +45,7 @@ export function ListItemModal({ listItem, setToDos, setListItem }) {
       }
 
       {listItemForUpdate ? (
-        <UpdateForm listItem={listItem} setListItem={setListItem} setToDos={setToDos} setListItemForUpdate={setListItemForUpdate}/>
+        <UpdateForm listItem={listItem} setListItem={setListItem} setToDos={setToDos} setListItemForUpdate={setListItemForUpdate} />
       ) : ("")}
 
 
@@ -51,19 +54,41 @@ export function ListItemModal({ listItem, setToDos, setListItem }) {
       <div className={`list-item-container ${listItemForUpdate ? "inactive" : ""}`} style={{ "background": checkImportanceColor(listItem.importance) }}>
         <button className='back' onClick={() => { setListItem("") }}><span aria-hidden="true">&#x2716;</span></button>
         <div className='list-item-body'>
-          <h1 className='title'>{listItem.title}</h1>
-          <p className='importance'>{listItem.importance}</p>
-        </div>
-        <div className='button-container'>
-          <button className='delete-btn list-modal-btn' onClick={(event) => {
-            setDeleteId(listItem._id)
-            event.preventDefault()
+          <div className='list-item-title list-item-body-group'>
+            <h1 className='title'>{listItem.title}</h1>
+          </div>
+          <div className='list-item-importance list-item-body-group'>
+            <h3>Importance:</h3>
+            <p>{listItem.importance}</p>
+          </div>
+          <hr></hr>
+          <div className='list-item-date list-item-body-group'>
+            <h3>Added:</h3>
+            <p>{moment(listItem.date).format("MMM Do YY")}</p>
+          </div>
+          <hr></hr>
+          <div className='list-item-date list-item-body-group'>
+            <h3>Alarm:</h3>
+            <p>{moment(listItem.alarm).format("MMM Do YY")}</p>
+          </div>
+          <hr></hr>
+          <div className='list-item-date list-item-body-group'>
+            <h3>Comment:</h3>
+            <p>Not aviable</p>
+          </div>
+        
 
-          }}>Delete</button>
-          <button className='update-btn list-modal-btn' onClick={(event) => {
-            setListItemForUpdate(listItem)
-            event.preventDefault()
-          }}>Update</button>
+          <div className='button-container'>
+            <button className='delete-btn list-modal-btn' onClick={(event) => {
+              setDeleteId(listItem._id)
+              event.preventDefault()
+
+            }}>Delete</button>
+            <button className='update-btn list-modal-btn' onClick={(event) => {
+              setListItemForUpdate(listItem)
+              event.preventDefault()
+            }}>Update</button>
+          </div>
         </div>
       </div>
 

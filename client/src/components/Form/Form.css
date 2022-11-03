@@ -1,11 +1,16 @@
 .toDoForm {
   background-color: #24a0ed;
-  padding: 3rem;
+  padding: 2rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 20px;
+  z-index: 100;
+}
+
+label {
+  color: white;
 }
 
 form {

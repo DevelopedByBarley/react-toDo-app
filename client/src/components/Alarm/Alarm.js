@@ -13,7 +13,7 @@ export function Alarm({ alarmListItem, setAlarmListItem }) {
               </div>
             </div>
             <div className='alarm-body'>
-              <p>You have {alarmListItem.length} ToDo Today!</p>
+              <p>You have <span className="numberOfToDo">{alarmListItem.length}</span> ToDo Today!</p>
             </div>
             <div className='alarm-footer'>
               <button className="accept-alarm-btn" onClick={() => {setAlarmListItem("") }}>Got It!</button>

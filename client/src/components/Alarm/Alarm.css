@@ -24,6 +24,12 @@
   padding: .4rem;
 }
 
+.alarm-container .alarm-body .numberOfToDo {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  color: orange;
+  padding: .2rem;
+}
 
 .alarm-container .alarm-nav {
   display: flex;
@@ -33,10 +39,12 @@
   padding: .6rem .3rem;
 }
 
+
 .alarm-container .alarm-nav .back {
   background: none;
   border: none;
   margin-top: -35px;
+  cursor: pointer;
 }
 
 .alarm-container .alarm-footer {
