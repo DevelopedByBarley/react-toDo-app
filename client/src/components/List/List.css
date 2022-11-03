@@ -5,6 +5,17 @@
   border-radius: 10px;
 }
 
+.list {
+  min-height: 150px;
+  padding: 1rem;
+  margin: 0 0 4rem 0;
+}
+
+.list h1 {
+  font-size: 2.5rem;
+}
+
+
 .list-item {
   border-radius: 5px;
   margin: 7px;
@@ -22,6 +33,10 @@
   justify-content: space-between;
   width: 100%;
   font-size: 1.3rem;
+}
+
+ .toDo-date{
+  margin-left: 2rem;
 }
 
 .delete-btn {

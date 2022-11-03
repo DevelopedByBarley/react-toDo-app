@@ -72,10 +72,6 @@ export function ListItemModal({ listItem, setToDos, setListItem }) {
             <p>{moment(listItem.alarm).format("MMM Do YY")}</p>
           </div>
           <hr></hr>
-          <div className='list-item-date list-item-body-group'>
-            <h3>Comment:</h3>
-            <p>Not aviable</p>
-          </div>
         
 
           <div className='button-container'>

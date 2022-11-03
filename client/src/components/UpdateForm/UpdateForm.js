@@ -1,5 +1,6 @@
 import './UpdateForm.css'
 import axios from 'axios';
+import moment from 'moment';
 
 export function UpdateForm({ setListItem, listItem, setToDos, setListItemForUpdate }) {
   return (
@@ -31,12 +32,12 @@ export function UpdateForm({ setListItem, listItem, setToDos, setListItemForUpda
         event.target.elements.title.value = ""
       }}>
         <input type="text" defaultValue={listItem.title} required name="title" id="title" />
-        <select name="importance" id="importance">
+        <select name="importance" id="importance" defaultValue={listItem.importance}>
           <option value="not-important">Not important</option>
           <option value="important">Important</option>
           <option value="very-important">Very important</option>
         </select>
-        <input type="date" name="alarm" id="alarm" required />
+        <input type="date" name="alarm" id="alarm" required defaultValue={moment(listItem.alarm).format('YYYY-MM-DD')}/>
         <button type="submit" className="add-btn">Add</button>
         <button className='back' aria-hidden="true" onClick={(event) => {
           event.preventDefault();
