@@ -13,8 +13,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  min-height: 100vh;
-  overflow: scroll;
+  height: 95vh;
 }
 
 h1 {
